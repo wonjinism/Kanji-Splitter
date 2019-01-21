@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원정보 처리 SQL -->
+<mapper namespace="dao.TodayTangoMapper">
+
+<!-- 전체 한자 목록 가져오기 -->
+<select id="getTangoList" resultType="TodayTango">
+select
+	TO_CHAR(tangoDate, 'YYYY-MM-DD') tangoDate
+	, tangoNum
+	, tangoStr
+	, tangoHurigana
+	, tangoImi
+from TodayTango
+</select>
+
+<insert id="insertTango" parameterType="TodayTango">
+insert into TodayTango(
+	tangoID
+	, tangoDate
+	, tangoNum
+	, tangoStr
+	, tangoHurigana
+	, tangoImi
+	) 
+values(
+	TodayTango_seq.nextval
+	, TO_DATE(#{tangoDate}, 'yyyy/mm/dd')
+	, #{tangoNum}
+	, #{tangoStr}
+	, #{tangoHurigana}
+	, #{tangoImi}
+	)
+</insert>
+
+<update id="updateTango" parameterType="TodayTango">
+update TodayTango set
+	tangoDate = TO_DATE(#{tangoDate}, 'yyyy/mm/dd')
+	, tangoNum = #{tangoNum}
+	, tangoStr = #{tangoStr}
+	, tangoHurigana = #{tangoHurigana}
+	, tangoImi = #{tangoImi}
+where tangoNum = #{tangoNum} and tangoDate = TO_DATE(#{tangoDate}, 'yyyy/mm/dd')
+</update>
+
+<delete id="deleteTango" parameterType="TodayTango">
+delete TodayTango where tangoStr = #{tangoStr}
+</delete>
+
+<update id="updateTangoList" parameterType="TodayTango">
+update TodayTango set
+	tangoNum = #{tangoNum}
+where tangoStr = #{tangoStr}
+</update>
+
+</mapper>

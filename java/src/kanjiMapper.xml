@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원정보 처리 SQL -->
+<mapper namespace="dao.KanjiMapper">
+
+<!-- 전체 한자 목록 가져오기 -->
+<select id="getKanjiList" resultType="Kanji">
+select
+	kanjiID
+	, typeNum
+	, kanji
+	, hurigana
+	, imi
+	, onkunnKR
+	, NVL(splitListStr, '정보가 없습니다.') splitListStr
+	, NVL(kanjiMemo, '정보가 없습니다.') kanjiMemo
+from CommonKanji
+</select>
+
+<update id="updateKanjiToUpdate" parameterType="Kanji">
+update CommonKanji
+set	splitListStr = #{splitListStr}
+	, kanjiMemo = #{kanjiMemo}
+	where kanjiID = #{kanjiID}
+</update>
+
+</mapper>
