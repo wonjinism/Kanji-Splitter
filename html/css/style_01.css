@@ -1,0 +1,88 @@
+﻿* {
+	margin:0;
+	padding:0;
+}
+
+h1 {
+	width:100%;
+	height:60px;
+	background-color: lightgreen;
+	background-size:cover;
+	line-height: 60px;
+	padding-left:50px;
+}
+#wrapper {
+	width:90%;
+	height: auto;
+	margin:20px auto;
+	background-color: #ddd;
+}
+#columns {
+	-webkit-column-count:2;
+	-webkit-column-gap:10px;
+	-moz-column-count:2;
+	-moz-column-gap:10px;
+	column-count:2;
+	column-gap:10px;	
+}
+.left_card {
+	display:inline-block;
+	width:80%;
+	background:#fff;
+	box-shadow:0px 1px 1px #ccc;
+	padding:15px;
+	padding-bottom:15px;
+	margin:10px 20px;
+}
+
+.right_card {
+	display:inline-block;
+	width:80%;
+	background:#fff;
+	box-shadow:0px 1px 1px #ccc;
+	padding:15px;
+	padding-bottom:15px;
+	margin:10px 20px;
+}
+
+.type{
+	text-align: center;
+	margin-bottom: -2%;
+}
+
+.kanji{
+	font-size: 35vw;
+	text-align: center;
+}
+
+.korean{
+	font-size: 4vw;
+	text-align: center;
+	margin-top: -5%
+}
+
+.split{
+	font-size: 5vw;
+	text-align: center;
+}
+
+.story{
+	font-size: 3.5vw;
+	text-align: left;
+}
+
+@media(max-width:800px){
+	#columns{
+		-webkit-column-count:1;
+		-moz-column-count:1;
+		column-count:1;
+	}
+}
+
+@media(min-width:1100px) {
+	#columns{
+		-webkit-column-count:2;
+		-moz-column-count:2;
+		column-count:2;
+	}
+}
