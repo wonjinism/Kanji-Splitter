@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 게시판 처리 SQL -->
+<mapper namespace="io.zerone.kanjisplitter.DAO.UserMapper">
+	<insert id="insertUser" parameterType="User">
+		INSERT INTO USER_INFO
+		(
+			USER_SEQ
+			, USER_ID
+			, USER_PASSWORD
+			, USER_REGDATE
+			, USER_LEVEL
+		) VALUES (
+			user_seq.nextval
+			, #{user_id}
+			, #{user_password}
+			, SYSDATE
+			, 1
+		)
+	</insert>
+	
+	<select id="selectUser" parameterType="String" resultType="User">
+		SELECT
+			USER_SEQ
+			, USER_ID
+			, USER_PASSWORD
+			, USER_REGDATE
+			, USER_LEVEL
+		FROM
+			USER_INFO
+		WHERE USER_ID = #{user_id}
+	</select>
+	
+<!-- 	user_seq NUMBER -->
+<!-- , user_id VARCHAR2(20) PRIMARY KEY -->
+<!-- , user_password VARCHAR(20) -->
+<!-- , user_regdate DATE -->
+<!-- , user_level NUMBER(1) DEFAULT 1 -->
+</mapper>

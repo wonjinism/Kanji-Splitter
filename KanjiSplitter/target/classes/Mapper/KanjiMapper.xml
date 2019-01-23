@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 게시판 처리 SQL -->
+<mapper namespace="io.zerone.kanjisplitter.DAO.KanjiMapper">
+	<select id="selectKanjiList" resultType="Kanji">
+		SELECT
+			kanji_id
+    		, kanji_type
+    		, school
+    		, jlpt
+    		, stroke
+    		, kanji
+    		, korean
+    		, split
+    		, story
+    		, furigana
+    		, imi
+   		FROM
+   			kanji_info
+	</select>
+	
+	<select id="selectKanji" parameterType="int" resultType="Kanji">
+		SELECT
+			kanji_id
+    		, kanji_type
+    		, school
+    		, jlpt
+    		, stroke
+    		, kanji
+    		, korean
+    		, split
+    		, story
+    		, furigana
+    		, imi
+   		FROM
+   			kanji_info
+		WHERE
+			kanji_id = #{kanji_id}
+	</select>
+</mapper>
