@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="kanjisplitter:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>kanjisplitter</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="kanjisplitter-1.0.0-BUILD-SNAPSHOT.war">
+      <element id="artifact" artifact-name="kanjisplitter:war exploded" />
+    </root>
+  </artifact>
+</component>

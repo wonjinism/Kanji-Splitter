@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="io.zerone.kanjisplitter.VO.User" alias="User" />
-		<typeAlias type="io.zerone.kanjisplitter.VO.Kanji" alias="Kanji" />
+		<typeAlias type="io.zerone.kanjisplitter.entity.User" alias="User" />
+		<typeAlias type="io.zerone.kanjisplitter.entity.Kanji" alias="Kanji" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="Mapper/UserMapper.xml" />
